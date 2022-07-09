@@ -2,9 +2,18 @@ import React, { useState } from "react";
 import "./portfolio.scss";
 import PortfolioList from "./portfolioList";
 import { useEffect } from "react";
+import {
+  featuredPortfolio,
+  webPortfolio,
+  mobilePortfolio,
+  designPortfolio,
+  contentPortfolio,
+} from "../../data";
 
 export default function Portfolio() {
   const [selected, setSelected] = useState("featured");
+  const [data, setData] = useState([]);
+
   const list = [
     {
       id: "featured",
@@ -31,17 +40,43 @@ export default function Portfolio() {
       title: "Branding",
     },
   ];
+
+  useEffect(() => {
+
+    switch (selected) {
+      case "featured":
+        setData(featuredPortfolio)
+        break;
+      case "web":
+        setData(webPortfolio)
+        break;
+    
+      case "mobile":
+        setData(mobilePortfolio)
+        break;
+    
+      case "ba":
+        setData(designPortfolio)
+        break;
+    
+      case "leadership":
+        setData(contentPortfolio)
+        break;
+
+      case "branding":
+        setData(featuredPortfolio)
+        break;
+    
+      default:
+        break;
+    }
+
+  }, [selected])
+
   return (
     <div className="portfolio" id="portfolio">
       <h1>Portfolio</h1>
       <ul>
-        {/* <li className='active'>Featured</li>
-        <li>Web App</li>
-        <li>Mobile App</li>
-        <li>Business Analyst</li>
-        <li>Leadership</li>
-        <li>Branding</li> */}
-
         {list.map((item) => (
           <PortfolioList
             item={item}
@@ -53,55 +88,14 @@ export default function Portfolio() {
       </ul>
 
       <div className="container">
-        <div className="item">
+        {data.map((dataItem) => (<div className="item" key={dataItem.id}>
           <img
-            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ3IA1T9DX9zFXCIpHqmbj7YAU1VDbeYGX4Tw&usqp=CAU"
+            src={dataItem.img}
             alt=""
           />
-          <h3>Social Media App</h3>
-        </div>
-        <div className="item">
-          <img
-            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ3IA1T9DX9zFXCIpHqmbj7YAU1VDbeYGX4Tw&usqp=CAU"
-            alt=""
-          />
-          <h3>Social Media App</h3>
-        </div>
-        <div className="item">
-          <img
-            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ3IA1T9DX9zFXCIpHqmbj7YAU1VDbeYGX4Tw&usqp=CAU"
-            alt=""
-          />
-          <h3>Social Media App</h3>
-        </div>
-        <div className="item">
-          <img
-            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ3IA1T9DX9zFXCIpHqmbj7YAU1VDbeYGX4Tw&usqp=CAU"
-            alt=""
-          />
-          <h3>Social Media App</h3>
-        </div>
-        <div className="item">
-          <img
-            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ3IA1T9DX9zFXCIpHqmbj7YAU1VDbeYGX4Tw&usqp=CAU"
-            alt=""
-          />
-          <h3>Social Media App</h3>
-        </div>
-        <div className="item">
-          <img
-            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ3IA1T9DX9zFXCIpHqmbj7YAU1VDbeYGX4Tw&usqp=CAU"
-            alt=""
-          />
-          <h3>Social Media App</h3>
-        </div>
-        <div className="item">
-          <img
-            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ3IA1T9DX9zFXCIpHqmbj7YAU1VDbeYGX4Tw&usqp=CAU"
-            alt=""
-          />
-          <h3>Social Media App</h3>
-        </div>
+          <h3>{dataItem.title}</h3>
+        </div>))}
+        
       </div>
     </div>
   );
