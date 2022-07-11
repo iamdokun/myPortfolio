@@ -1,1 +1,10 @@
 $mainColor: #15023a;
+
+$mdWidth: 768px;
+$smWidth: 500px;
+
+@mixin tablet {
+    @media (max-width: #{$mdWidth}) {
+        @content
+    }
+}
