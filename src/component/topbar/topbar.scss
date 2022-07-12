@@ -35,6 +35,9 @@
                 align-items: center;
                 margin-left: 30px;
 
+                @include tablet {
+                    display: none;
+                }
 
                 .icon {
                     font-size: 18px;

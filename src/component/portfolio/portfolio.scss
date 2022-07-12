@@ -10,6 +10,10 @@
     h1 {
         font-size: 50px;
         // border: 1px solid red;
+
+        @include tablet {
+            font-size: 25px;
+        }
     }
 
     ul {
@@ -18,6 +22,12 @@
         list-style: none;
         display: flex;
         // border: 1px solid red;
+
+        
+        @include tablet {
+            flex-wrap: wrap;
+            justify-content: center;
+        }
 
         .portfolioList {
             font-style: 14px;
@@ -41,6 +51,11 @@
         flex-wrap: wrap;
         // border: 1px solid red;
 
+        
+        @include tablet {
+            width: 100%;
+        }
+
 
         .item {
             width: 280px;
@@ -57,6 +72,10 @@
             // border: 1px solid red;
             cursor: pointer;
 
+            
+        @include tablet {
+            width: 150px;
+        }
 
             h3 {
                 position: absolute;
