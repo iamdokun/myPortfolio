@@ -9,13 +9,16 @@
     top: 0;
     z-index: 3;
     transition: all 1s;
+    // border: 2PX SOLID red;
 
     .wrapper {
+        max-width: 85%;
         padding: 10px 30px;
         display: flex;
         align-items: center; 
         justify-content: space-between;
-
+        // border: 2PX SOLID blue;
+        margin: 0 auto;
 
         .left {
 
