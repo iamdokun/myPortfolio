@@ -35,10 +35,10 @@ export default function Portfolio() {
       id: "leadership",
       title: "Leadership",
     },
-    {
-      id: "branding",
-      title: "Branding",
-    },
+    // {
+    //   id: "branding",
+    //   title: "Branding",
+    // },
   ];
 
   useEffect(() => {
