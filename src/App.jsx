@@ -18,7 +18,6 @@ function App() {
     <div className="sections">
        <Intro menuOpen={menuOpen} />
        <Works />
-       {/* <Testimonials /> */}
        <Portfolio />
        <Contact />
     </div>
